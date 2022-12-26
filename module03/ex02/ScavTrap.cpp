@@ -50,6 +50,7 @@ ScavTrap::ScavTrap(std::string name): ClapTrap(name) {
 
 ScavTrap::ScavTrap(ScavTrap &s): ClapTrap(s) {
 	*this = s;
+	std::cout << "ScavTrap " << _name << " copy constructor called." << std::endl;
 }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &s) {
