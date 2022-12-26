@@ -2,7 +2,7 @@
 #include <iostream>
 
 void ScavTrap::guardGate() {
-	if (this->_health_point <= 0) {
+	if (this->_hit_points <= 0) {
 		std::cout << "ScavTrap " << this->_name << " died" << std::endl;
 		return ;
 	}
@@ -16,7 +16,7 @@ void ScavTrap::guardGate() {
 
 void ScavTrap::attack(const std::string& target)
 {
-	if (this->_health_point <= 0)
+	if (this->_hit_points <= 0)
 	{
 		std::cout << "you died!" << std::endl;
 		return ;
@@ -35,14 +35,14 @@ void ScavTrap::attack(const std::string& target)
 */
 
 ScavTrap::ScavTrap(): ClapTrap() {
-	_health_point = 100;
+	_hit_points = 100;
 	_energy = 50;
 	_attack_damage = 20;
 	std::cout << "ScavTrap" << _name << " constructor called." << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name): ClapTrap(name) {
-	_health_point = 100;
+	_hit_points = 100;
 	_energy = 50;
 	_attack_damage = 20;
 	std::cout << "ScavTrap " << _name << " constructor called." << std::endl;
@@ -56,7 +56,7 @@ ScavTrap::ScavTrap(ScavTrap &s): ClapTrap(s) {
 ScavTrap &ScavTrap::operator=(const ScavTrap &s) {
 	if (this != &s) {
 		_name = s._name;
-		_health_point = s._health_point;
+		_hit_points = s._hit_points;
 		_energy = s._energy;
 		_attack_damage = s._attack_damage;
 	}

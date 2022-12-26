@@ -6,14 +6,14 @@
 */
 
 FragTrap::FragTrap(void) : ClapTrap("default FragTrap") {
-	_health_point = 100;
+	_hit_points = 100;
 	_energy = 100;
 	_attack_damage = 30;
 	std::cout << "FragTrap " << _name << " constructor called." << std::endl;
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name) {
-	_health_point = 100;
+	_hit_points = 100;
 	_energy = 100;
 	_attack_damage = 30;
 	std::cout << "FragTrap " << _name << " constructor called." << std::endl;
@@ -32,7 +32,7 @@ FragTrap::~FragTrap() {
 FragTrap &FragTrap::operator=(const FragTrap &ref) {
 	if (this != &ref) {
 		_name = ref._name;
-		_health_point = ref._health_point;
+		_hit_points = ref._hit_points;
 		_energy = ref._energy;
 		_attack_damage = ref._attack_damage;
 	}
@@ -45,7 +45,7 @@ FragTrap &FragTrap::operator=(const FragTrap &ref) {
 
 void FragTrap::attack(const std::string& target)
 {
-	if (this->_health_point <= 0)
+	if (this->_hit_points <= 0)
 	{
 		std::cout << "you died!" << std::endl;
 		return ;
@@ -60,7 +60,7 @@ void FragTrap::attack(const std::string& target)
 };
 
 void FragTrap::highFivesGuys() {
-	if (this->_health_point <= 0) {
+	if (this->_hit_points <= 0) {
 		std::cout << "FragTrap " << this->_name << " died" << std::endl;
 		return ;
 	}

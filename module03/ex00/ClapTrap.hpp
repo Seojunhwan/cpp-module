@@ -6,7 +6,7 @@
 /*   By: junseo <junseo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 13:08:21 by junseo            #+#    #+#             */
-/*   Updated: 2022/12/26 15:26:08 by junseo           ###   ########.fr       */
+/*   Updated: 2022/12/26 17:10:06 by junseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ public:
 
 private:
 	std::string _name;
-	unsigned int _health_point;
+	unsigned int _hit_points;
 	unsigned int _energy;
 	unsigned int _attack_damage;
 };
