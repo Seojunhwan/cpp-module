@@ -6,7 +6,7 @@
 #    By: junseo <junseo@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 17:48:00 by junseo            #+#    #+#              #
-#    Updated: 2022/12/26 16:30:45 by junseo           ###   ########.fr        #
+#    Updated: 2022/12/26 17:27:03 by junseo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,8 @@ NAME = a.out
 CC = c++
 CPPFLAGS = -std=c++98 -Wall -Wextra -Werror
 
-SRCS = main.cpp	\
-			Fixed.cpp
+SRCS = main.cpp \
+		ClapTrap.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
