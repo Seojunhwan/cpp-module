@@ -6,7 +6,9 @@ CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 SRCS = main.cpp \
 		Cat.cpp \
 		Dog.cpp \
-		Animal.cpp
+		Animal.cpp \
+		WrongAnimal.cpp \
+		WrongCat.cpp 
 
 OBJS = $(SRCS:.cpp=.o)
 
