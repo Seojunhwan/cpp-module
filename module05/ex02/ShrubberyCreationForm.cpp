@@ -1,30 +1,38 @@
 #include "ShrubberyCreationForm.hpp"
+#include "AForm.hpp"
 #include <fstream>
 
-ShrubberyCreationForm::ShrubberyCreationForm() 
-: Form("shrubbery", 145, 137)
-{ }
-
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) 
-: Form("shrubbery", 145, 137)
-{ this->target = target; }
+: AForm("shrubbery", 145, 137) { 
+	this->_target = target;
+}
 
 ShrubberyCreationForm::~ShrubberyCreationForm() { }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &s)
-:Form(s)
-{ this->target = s.target; }
-
-ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &s) 
-{
-	this->target = s.target;
-	return *dynamic_cast<ShrubberyCreationForm*>(&Form::operator=(s));
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &obj)
+:AForm(obj) {
+	*this = obj;
 }
 
-std::string ShrubberyCreationForm::getTarget() const { return target; }
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &obj) {
+	if (this != &obj) {
+		AForm::operator=(obj);
+		this->_target = obj._target;
+	}
+	return *this;
+}
 
-void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
-	isExecutable(executor);
+std::string ShrubberyCreationForm::getTarget() const { 
+	return this->_target;
+}
+
+void ShrubberyCreationForm::execute(Bureaucrat const & obj) const {
+	if (!this->getIsSigned()) {
+		throw AForm::IsNotSignedException();
+	}
+	if (this->getExecutionGrade() < obj.getGrade()) {
+		throw AForm::GradeTooLowException();
+	}
 	std::string shrubbery = "      .\n"
 													"   __/ \\__ \n"
 													"   \\     / \n"
@@ -37,7 +45,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
 													"   [_____] \n"
 													"    \\___/  \n";
 	std::ofstream ofs;
-	ofs.open(getTarget() + "_shruberry");
+	ofs.open((this->getTarget() + "_shruberry").c_str());
 	ofs << shrubbery;
 	ofs.close();
 }

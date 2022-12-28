@@ -1,28 +1,87 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include <iostream>
 
-int main(void) {
-	try {
-		ShrubberyCreationForm shruberryForm("home");
-		Bureaucrat jiyo("jiyo", 1);
-		Bureaucrat b("b", 150);
-		jiyo.signForm(shruberryForm);
-		shruberryForm.execute(jiyo);
-		std::cout << shruberryForm;
-	} catch (std::exception &e) {
-		std::cerr << e.what() << std::endl;
-	} //shruberryCreation
+int main()
+{
+    {
+        RobotomyRequestForm rob("rob");
+        Bureaucrat          jiyo("jiyo", 3);
 
-	try{
-		ShrubberyCreationForm shruberryForm("home");
-		ShrubberyCreationForm a;
-		a = shruberryForm;
-		std::cout << a.getTarget();
+        jiyo.signForm(rob);
+        jiyo.executeForm(rob);
+    }
+    std::cout << "\n\n";
+    {
+        RobotomyRequestForm rob("rob");
+        Bureaucrat          jiyo("jiyo", 55);
 
-	} catch (std::exception &e) {
-		std::cerr << e.what() << std::endl;
-	}
+        jiyo.signForm(rob);
+        jiyo.executeForm(rob);
+    }
+    std::cout << "\n\n";
+    {
+        RobotomyRequestForm rob("rob");
+        Bureaucrat          jiyo("jiyo", 130);
 
-	return 0;
+        jiyo.signForm(rob);
+        jiyo.executeForm(rob);
+    }
+
+    std::cout << "\n\n";
+    std::cout << "PresidentialPardonForm\n";
+
+    {
+        PresidentialPardonForm pre("pre");
+        Bureaucrat          jiyo("jiyo", 3);
+
+        jiyo.signForm(pre);
+        jiyo.executeForm(pre);
+    }
+    std::cout << "\n\n";
+    {
+        PresidentialPardonForm pre("pre");
+        Bureaucrat          jiyo("jiyo", 24);
+
+        jiyo.signForm(pre);
+        jiyo.executeForm(pre);
+    }
+    std::cout << "\n\n";
+    {
+        PresidentialPardonForm pre("pre");
+        Bureaucrat          jiyo("jiyo", 130);
+
+        jiyo.signForm(pre);
+        jiyo.executeForm(pre);
+    }
+
+    std::cout << "\n\n";
+    std::cout << "ShrubberyCreationForm\n";
+
+    {
+        ShrubberyCreationForm shr("shr");
+        Bureaucrat          jiyo("jiyo", 3);
+
+        jiyo.signForm(shr);
+        jiyo.executeForm(shr);
+    }
+    std::cout << "\n\n";
+    {
+        ShrubberyCreationForm shr("shr");
+        Bureaucrat          jiyo("jiyo", 140);
+
+        jiyo.signForm(shr);
+        jiyo.executeForm(shr);
+    }
+    std::cout << "\n\n";
+    {
+        ShrubberyCreationForm shr("shr");
+        Bureaucrat          jiyo("jiyo", 146);
+
+        jiyo.signForm(shr);
+        jiyo.executeForm(shr);
+    }
+    return 0;    
 }
