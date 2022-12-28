@@ -2,37 +2,24 @@
 # define FORM_HPP
 
 # include <string>
-
-class Bureaucrat;
-
+# include <exception>
+# include "Bureaucrat.hpp"
 class Form {
 	private:
-		const std::string name;
-		bool sign;
-		const int sign_grade;
-		const int exe_grade;
+		const std::string	_name;
+		bool				_isSigned;
+		const int			_signGrade;
+		const int			_executionGrade;
 	public:
-		Form();
-		Form(const Form &form);
-		Form(const std::string name, int sign_grade, int exe_grade);
-		Form &operator=(const Form &form);
+		Form(const std::string& name, int gradeToSign, int gradeToExec);
+		Form(const Form &obj);
 		~Form();
+		Form&	operator=(const Form &obj);
 
-		std::string getName() const;
-		bool getSign() const;
-		int getSignGrade() const;
-		int getExeGrade() const;
-
-		void beSigned(const Bureaucrat &brct);
-
-		class GradeTooHighException: public std::exception {
-			public:
-				const char * what() const throw();
-		};
-		class GradeTooLowException: public std::exception {
-			public:
-				const char * what() const throw();
-		};
+		void				beSigned(Bureaucrat &obj);
+		
+		std::out_of_range	GradeTooHighException();
+		std::out_of_range	GradeTooLowException();
 };
 
 std::ostream& operator<<(std::ostream& ostream, const Form& form);
