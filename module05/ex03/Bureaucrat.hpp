@@ -1,8 +1,11 @@
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
-# include <string>
-# include <exception>
+#include <string>
+#include <exception>
+#include "AForm.hpp"
+
+class AForm;
 
 class Bureaucrat
 {
@@ -16,16 +19,17 @@ class Bureaucrat
         ~Bureaucrat();
         Bureaucrat& operator=(const Bureaucrat& obj);
 
-        const std::string       getName() const;
-        int                     getGrade() const;
+        const std::string   getName() const;
+        int                 getGrade() const;
 
         void                incrementGrade();
         void                decrementGrade();
 
+        void                signForm(AForm &form);
+        void                executeForm(AForm const & form);
+
         std::out_of_range   GradeTooHighException() const;
         std::out_of_range   GradeTooLowException() const;
-
-
 };
 
 std::ostream& operator<<(std::ostream& o, Bureaucrat const& i);
