@@ -6,12 +6,15 @@ int main()
 
     try
     {
-        Bureaucrat  junseo("junseo", 151);
-        Bureaucrat  jiyo("jiyo", 0);
+        Bureaucrat  jiyo("jiyo", 1);
+        Bureaucrat  junseo("junseo", 150);
 
 
         std::cout << junseo;
         std::cout << jiyo;
+
+        jiyo.incrementGrade();
+        junseo.decrementGrade();
     }
     catch(const std::exception& e)
     {
