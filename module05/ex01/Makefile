@@ -4,6 +4,7 @@ CXX = c++
 CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 
 SRCS = Bureaucrat.cpp \
+		Form.cpp \
 		main.cpp
 
 OBJS = $(SRCS:.cpp=.o)

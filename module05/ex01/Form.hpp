@@ -4,7 +4,11 @@
 # include <string>
 # include <exception>
 # include "Bureaucrat.hpp"
-class Form {
+
+class Bureaucrat;
+
+class Form 
+{
 	private:
 		const std::string	_name;
 		bool				_isSigned;
@@ -17,11 +21,15 @@ class Form {
 		Form&	operator=(const Form &obj);
 
 		void				beSigned(Bureaucrat &obj);
-		
+		const std::string	getName() const;
+		bool				getIsSigned() const;
+		int					getSignGrade() const;
+		int					getExecutionGrade() const;
+
 		std::out_of_range	GradeTooHighException();
 		std::out_of_range	GradeTooLowException();
 };
 
-std::ostream& operator<<(std::ostream& ostream, const Form& form);
+std::ostream& operator<<(std::ostream& os, const Form& obj);
 
 #endif

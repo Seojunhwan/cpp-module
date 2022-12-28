@@ -1,4 +1,5 @@
 #include "Form.hpp"
+#include <iostream>
 
 Form::Form(const std::string& name,const int signGrade, const int executionGrade) 
 :_name(name), 
@@ -10,6 +11,7 @@ _executionGrade(executionGrade) {
 	if (signGrade > 150 || executionGrade > 150)
 		throw Form::GradeTooLowException();
 }
+
 Form::Form(const Form &obj)
 :_name(obj._name), 
 _isSigned(obj._isSigned),
@@ -18,23 +20,53 @@ _executionGrade(obj._executionGrade) {
 
 }
 
+
 Form::~Form() { 
 }
-
+/** const를 캐스팅해서 name, grade까지 바꿔야할까? 아닐지도... */
 Form&	Form::operator=(const Form &obj) {
 	if (this != &obj) {
-		
+		this->_isSigned = obj._isSigned;
 	}
 	return *this;
 }
 
 void				Form::beSigned(Bureaucrat &obj) {
+	if (obj.getGrade() > this->getSignGrade()) {
+		throw Form::GradeTooLowException();
+	}
+	this->_isSigned = true;
+}
 
+const std::string	Form::getName() const {
+	return this->_name;
+}
+
+bool				Form::getIsSigned() const {
+	return this->_isSigned;
+}
+
+int					Form::getSignGrade() const {
+	return this->_signGrade;
+}
+
+int					Form::getExecutionGrade() const {
+	return this->_executionGrade;
 }
 
 std::out_of_range	Form::GradeTooHighException() {
-
+	return std::out_of_range("Grade is too high.");
 }
-std::out_of_range	Form::GradeTooLowException() {
 
+std::out_of_range	Form::GradeTooLowException() {
+	return std::out_of_range("Grade is too low.");
+}
+
+std::ostream& operator<<(std::ostream& os, const Form& obj) {
+	os << "Name: " << obj.getName() << std::endl 
+	<< "is Signed: " << (obj.getIsSigned() ? "yes" : "no") << std::endl
+	<< "possible sign grade: " << obj.getSignGrade() << std::endl
+	<< "possible execution grade: " << obj.getExecutionGrade() << std::endl;
+
+	return os;
 }

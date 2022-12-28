@@ -3,6 +3,9 @@
 
 #include <string>
 #include <exception>
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -22,12 +25,10 @@ class Bureaucrat
         void                incrementGrade();
         void                decrementGrade();
 
-        void                signForm();
+        void                signForm(Form &form);
 
         std::out_of_range   GradeTooHighException() const;
         std::out_of_range   GradeTooLowException() const;
-
-
 };
 
 std::ostream& operator<<(std::ostream& o, Bureaucrat const& i);
