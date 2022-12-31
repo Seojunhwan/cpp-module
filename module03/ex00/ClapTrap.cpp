@@ -1,7 +1,10 @@
 #include "ClapTrap.hpp"
 #include <iostream>
 
-ClapTrap::ClapTrap(void) : _name("Default ClapTrap"), _hit_points(10), _energy(10), _attack_damage(0)
+/*
+! Orthodox Canonical Form
+*/
+ClapTrap::ClapTrap(void) : _name("Default"), _hit_points(10), _energy(10), _attack_damage(0)
 {
 	std::cout << "ClapTrap " << _name << " created!" << std::endl;
 };
@@ -19,27 +22,32 @@ ClapTrap::ClapTrap(const ClapTrap &ref)
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << this->_name << "Destructor called" << std::endl;
+	std::cout << this->_name << " Destructor called" << std::endl;
 };
 
 ClapTrap &ClapTrap::operator=(const ClapTrap& obj)
 {
-	this->_name = obj._name;
-	this->_hit_points = obj._hit_points;
-	this->_attack_damage = obj._attack_damage;
-	this->_energy = obj._energy;
-
+	if (this != &obj) {
+		this->_name = obj._name;
+		this->_hit_points = obj._hit_points;
+		this->_attack_damage = obj._attack_damage;
+		this->_energy = obj._energy;
+	}
 	return *this;
 }
 
+/*
+! Member Function
+*/
+
 void ClapTrap::attack(const std::string& target)
 {
-	if (this->_hit_points <= 0)
+	if (this->_hit_points == 0)
 	{
-		std::cout << " is already dead TT" << std::endl;
+		std::cout << this->_name << " is already dead TT" << std::endl;
 		return ;
 	}
-	if (this->_energy <= 0)
+	if (this->_energy == 0)
 	{
 		std::cout << "akk!! energy is 0 !!" << std::endl;
 		return;
@@ -50,14 +58,14 @@ void ClapTrap::attack(const std::string& target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	if (this->_hit_points <= 0)
+	if (this->_hit_points == 0)
 	{
-		std::cout << " is already dead TT" << std::endl;
+		std::cout << this->_name << " is already dead TT" << std::endl;
 		return ;
 	}
 	if (this->_hit_points > amount)
 	{
-		std::cout << "ClapTrap" << this->_name << " takes " << amount << " points of damage" << std::endl;
+		std::cout << this->_name << " takes " << amount << " points of damage" << std::endl;
 		this->_hit_points -= amount;
 	} else {
 		std::cout << this->_name << " is die" << std::endl;
@@ -67,12 +75,12 @@ void ClapTrap::takeDamage(unsigned int amount)
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-	if (this->_hit_points <= 0)
+	if (this->_hit_points == 0)
 	{
-		std::cout << " is already dead TT" << std::endl;
+		std::cout << this->_name << " is already dead TT" << std::endl;
 		return ;
 	}
-	if (this->_energy <= 0)
+	if (this->_energy == 0)
 	{
 		std::cout << "akk!! energy is 0 !!" << std::endl;
 		return;

@@ -1,7 +1,7 @@
 NAME = a.out
 
-CC = c++
-CPPFLAGS = -std=c++98 -Wall -Wextra -Werror
+CXX = c++
+CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 
 SRCS = main.cpp \
 		ClapTrap.cpp
@@ -11,7 +11,7 @@ OBJS = $(SRCS:.cpp=.o)
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	$(CC) $(CPPFLAGS) -o $@ $^
+	$(CXX) $(CXXFLAGS) -o $@ $^
 
 clean :
 	$(RM) $(OBJS)

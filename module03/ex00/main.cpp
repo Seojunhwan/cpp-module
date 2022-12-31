@@ -3,7 +3,11 @@
 int main(void)
 {
 	ClapTrap junseo("junseo");
+	ClapTrap jiyo("jiyo");
 
-	junseo.attack("junhwan");
+	junseo.attack("jiyo");
+	jiyo.takeDamage(15);
+	jiyo.attack("junseo");
+
 	return (0);
 }

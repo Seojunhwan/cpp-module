@@ -5,17 +5,17 @@
 ! Orthodox Canonical Form
 */
 
-FragTrap::FragTrap(void) : ClapTrap("default FragTrap") {
-	_hit_points = 100;
-	_energy = 100;
-	_attack_damage = 30;
+FragTrap::FragTrap(void) : ClapTrap() {
+	this->_hit_points = 100;
+	this->_energy = 100;
+	this->_attack_damage = 30;
 	std::cout << "FragTrap " << _name << " constructor called." << std::endl;
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name) {
-	_hit_points = 100;
-	_energy = 100;
-	_attack_damage = 30;
+	this->_hit_points = 100;
+	this->_energy = 100;
+	this->_attack_damage = 30;
 	std::cout << "FragTrap " << _name << " constructor called." << std::endl;
 }
 
@@ -28,7 +28,6 @@ FragTrap::~FragTrap() {
 	std::cout << "FragTrap " << _name << " destructor called." << std::endl;
 }
 
-
 FragTrap &FragTrap::operator=(const FragTrap &ref) {
 	if (this != &ref) {
 		_name = ref._name;
@@ -40,19 +39,17 @@ FragTrap &FragTrap::operator=(const FragTrap &ref) {
 }
 
 /*
-! Methods
+! Member Function
 */
 
 void FragTrap::attack(const std::string& target)
 {
-	if (this->_hit_points <= 0)
-	{
-		std::cout << "you died!" << std::endl;
+	if (this->_hit_points == 0) {
+		std::cout << "FragTrap " << this->_name << " died" << std::endl;
 		return ;
 	}
-	if (this->_energy <= 0)
-	{
-		std::cout << "akk!! energy is 0 !!" << std::endl;
+	if (this->_energy == 0) {
+		std::cout << "FragTrap " << "akk!! energy is 0 !!" << std::endl;
 		return;
 	}
 	this->_energy -= 1;
@@ -60,14 +57,9 @@ void FragTrap::attack(const std::string& target)
 };
 
 void FragTrap::highFivesGuys() {
-	if (this->_hit_points <= 0) {
+	if (this->_hit_points == 0) {
 		std::cout << "FragTrap " << this->_name << " died" << std::endl;
 		return ;
 	}
-	if (this->_energy <= 0)
-	{
-		std::cout << "FragTrap " << this->_name << "akk!! energy is 0 !!" << std::endl;
-		return ;
-	}
-	std::cout << "FragTrap" << this->_name << " high five~" << std::endl;
+	std::cout << "FragTrap " << this->_name << " high five~" << std::endl;
 }
