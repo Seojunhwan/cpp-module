@@ -1,6 +1,10 @@
 #include "WrongAnimal.hpp"
 #include <iostream>
 
+/*
+!  Orthodox Canonical Form
+*/
+
 WrongAnimal::WrongAnimal(void):_type("WrongAnimal") {
 	std::cout << "WrongAnimal constructor called" << std::endl;
 }
@@ -20,6 +24,10 @@ WrongAnimal& WrongAnimal::operator=(const WrongAnimal& obj) {
 	}
 	return *this;
 }
+
+/* 
+!  Member functions
+*/
 
 std::string 	WrongAnimal::getType() const {
 	return this->_type;

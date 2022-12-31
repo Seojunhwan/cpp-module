@@ -1,6 +1,9 @@
 #include "Dog.hpp"
 #include <iostream>
 
+/*
+!  Orthodox Canonical Form
+*/
 Dog::Dog(void) {
 	this->_type = "Dog";
 	std::cout << "Dog constructor called" << std::endl;
@@ -21,6 +24,10 @@ Dog& Dog::operator=(const Dog& obj) {
 	}
 	return *this;
 }
+
+/*
+!  Member functions
+*/
 
 void	Dog::makeSound() const {
 	std::cout << "Wal Wal !" << std::endl;

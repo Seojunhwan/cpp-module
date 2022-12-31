@@ -1,6 +1,10 @@
 #include "WrongCat.hpp"
 #include <iostream>
 
+/*
+!  Orthodox Canonical Form
+*/
+
 WrongCat::WrongCat(void) {
 	this->_type = "WrongCat";
 	std::cout << "WrongCat constructor called" << std::endl;
@@ -21,6 +25,10 @@ WrongCat& WrongCat::operator=(const WrongCat& obj) {
 	}
 	return *this;
 }
+
+/*
+!  Member functions
+*/
 
 void	WrongCat::makeSound() const {
 	std::cout << "Meow ~ Meow ~ Nyaong" << std::endl;

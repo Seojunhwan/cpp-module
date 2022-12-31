@@ -4,6 +4,7 @@
 /*
 ! Orthodox Canonical Form
 */
+
 Brain::Brain(void) {
     std::cout << "Brain constructor called" << std::endl;
 }

@@ -1,6 +1,9 @@
 #include "Animal.hpp"
 #include <iostream>
 
+/*
+!  Orthodox Canonical Form
+*/
 Animal::Animal(void):_type("Animal") {
 	std::cout << "Animal constructor called" << std::endl;
 }
@@ -20,6 +23,10 @@ Animal& Animal::operator=(const Animal& obj) {
 	}
 	return *this;
 }
+
+/*
+!  Member functions
+*/
 
 std::string 	Animal::getType() const {
 	return this->_type;
