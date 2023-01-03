@@ -6,6 +6,7 @@
 
 int main()
 {
+    std::cout << "------------valid------------------\n";
     {
         RobotomyRequestForm rob("rob");
         Bureaucrat          jiyo("jiyo", 3);
@@ -13,7 +14,7 @@ int main()
         jiyo.signForm(rob);
         jiyo.executeForm(rob);
     }
-    std::cout << "\n\n";
+    std::cout << "\n------------excute invalid------------------\n";
     {
         RobotomyRequestForm rob("rob");
         Bureaucrat          jiyo("jiyo", 55);
@@ -21,7 +22,7 @@ int main()
         jiyo.signForm(rob);
         jiyo.executeForm(rob);
     }
-    std::cout << "\n\n";
+    std::cout << "\n------------sign invalid------------------\n";
     {
         RobotomyRequestForm rob("rob");
         Bureaucrat          jiyo("jiyo", 130);
@@ -32,7 +33,7 @@ int main()
 
     std::cout << "\n\n";
     std::cout << "PresidentialPardonForm\n";
-
+    std::cout << "------------valid------------------\n";
     {
         PresidentialPardonForm pre("pre");
         Bureaucrat          jiyo("jiyo", 3);
@@ -40,7 +41,7 @@ int main()
         jiyo.signForm(pre);
         jiyo.executeForm(pre);
     }
-    std::cout << "\n\n";
+    std::cout << "\n------------excute invalid------------------\n";
     {
         PresidentialPardonForm pre("pre");
         Bureaucrat          jiyo("jiyo", 24);
@@ -48,7 +49,7 @@ int main()
         jiyo.signForm(pre);
         jiyo.executeForm(pre);
     }
-    std::cout << "\n\n";
+    std::cout << "\n------------sign invalid------------------\n";
     {
         PresidentialPardonForm pre("pre");
         Bureaucrat          jiyo("jiyo", 130);
@@ -59,7 +60,7 @@ int main()
 
     std::cout << "\n\n";
     std::cout << "ShrubberyCreationForm\n";
-
+    std::cout << "------------valid------------------\n";
     {
         ShrubberyCreationForm shr("shr");
         Bureaucrat          jiyo("jiyo", 3);
@@ -67,7 +68,7 @@ int main()
         jiyo.signForm(shr);
         jiyo.executeForm(shr);
     }
-    std::cout << "\n\n";
+    std::cout << "\n------------excute invalid------------------\n";
     {
         ShrubberyCreationForm shr("shr");
         Bureaucrat          jiyo("jiyo", 140);
@@ -75,7 +76,7 @@ int main()
         jiyo.signForm(shr);
         jiyo.executeForm(shr);
     }
-    std::cout << "\n\n";
+    std::cout << "\n------------sign invalid------------------\n";
     {
         ShrubberyCreationForm shr("shr");
         Bureaucrat          jiyo("jiyo", 146);

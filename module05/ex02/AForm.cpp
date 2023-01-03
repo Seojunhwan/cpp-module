@@ -1,6 +1,10 @@
 #include "AForm.hpp"
 #include <iostream>
 
+AForm::AForm(void): _name("default"), _isSigned(false), _signGrade(150), _executionGrade(150) {
+
+}
+
 AForm::AForm(const std::string& name,const int signGrade, const int executionGrade) 
 :_name(name), 
 _isSigned(false),
@@ -23,12 +27,10 @@ _executionGrade(obj._executionGrade) {
 
 AForm::~AForm() { 
 }
-/** const를 캐스팅해서 name, grade까지 바꿔야할까? 아닐지도... */
 AForm&	AForm::operator=(const AForm &obj) {
 	if (this != &obj) {
-		this->_isSigned = obj._isSigned;
+		std::cout << "You cannot copy Form!" << std::endl;
 	}
-	std::cout << "AFrom assignment\n";
 	return *this;
 }
 

@@ -4,6 +4,9 @@
 # include <string>
 # include "AForm.hpp"
 # include <exception>
+# include "RobotomyRequestForm.hpp"
+# include "PresidentialPardonForm.hpp"
+# include "ShrubberyCreationForm.hpp"
 
 class Intern
 {

@@ -11,6 +11,7 @@ class Bureaucrat
         int                 _grade;
 
     public:
+        Bureaucrat(void);
         Bureaucrat(const std::string name, int grade);
         Bureaucrat(const Bureaucrat &obj);
         ~Bureaucrat();
@@ -24,8 +25,6 @@ class Bureaucrat
 
         std::out_of_range   GradeTooHighException() const;
         std::out_of_range   GradeTooLowException() const;
-
-
 };
 
 std::ostream& operator<<(std::ostream& o, Bureaucrat const& i);

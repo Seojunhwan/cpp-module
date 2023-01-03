@@ -1,6 +1,15 @@
 #include "Bureaucrat.hpp"
 #include <iostream>
 
+
+/*
+! Orthodox Canonical Form
+*/
+
+Bureaucrat::Bureaucrat(): _name("default"), _grade(150) {
+
+}
+
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name) {
     if (grade < 1) {
         throw Bureaucrat::GradeTooHighException();

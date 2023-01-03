@@ -1,7 +1,4 @@
 #include "Intern.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
-#include "ShrubberyCreationForm.hpp"
 #include <iostream>
 
 Intern::Intern(void) {
@@ -28,11 +25,12 @@ AForm	*Intern::makeForm(const std::string &formName, const std::string &targetNa
 	int		i;
 	AForm	*f;
 
-	i = formName == nameTable[0] ? 0 
-	: formName == nameTable[1] ? 1 
-	: formName == nameTable[2] ? 2 
-	: 3;
-
+	for (int j = 0; j < 3; j++)
+	{
+		if (formName == nameTable[j])
+			i = j;
+	}
+	
 	switch (i)
 	{
 		case 0:

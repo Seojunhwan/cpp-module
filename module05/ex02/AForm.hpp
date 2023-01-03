@@ -15,6 +15,7 @@ class AForm
 		const int			_signGrade;
 		const int			_executionGrade;
 	public:
+		AForm(void);
 		AForm(const std::string& name, int gradeToSign, int gradeToExec);
 		AForm(const AForm &obj);
 		~AForm();
