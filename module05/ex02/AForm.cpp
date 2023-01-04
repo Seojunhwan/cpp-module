@@ -58,15 +58,18 @@ int					AForm::getExecutionGrade() const {
 }
 
 std::out_of_range	AForm::GradeTooHighException() {
-	return std::out_of_range("Grade is too high.");
+	std::string e = "Grade is too high!";
+    return std::out_of_range(e);
 }
 
 std::out_of_range	AForm::GradeTooLowException() const {
-	return std::out_of_range("Grade is too low.");
+	std::string e = "Grade is too low!";
+    return std::out_of_range(e);
 }
 
 std::logic_error	AForm::IsNotSignedException() const {
-	return std::logic_error("Form is not signed.");
+	std::string e = "Form is not signed.";
+	return std::logic_error(e);
 }
 
 std::ostream& operator<<(std::ostream& os, const AForm& obj) {

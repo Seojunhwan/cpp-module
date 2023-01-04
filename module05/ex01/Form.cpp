@@ -60,11 +60,13 @@ int					Form::getExecutionGrade() const {
 }
 
 std::out_of_range	Form::GradeTooHighException() {
-	return std::out_of_range("Grade is too high.");
+	std::string e = "Grade is too high!";
+    return std::out_of_range(e);
 }
 
 std::out_of_range	Form::GradeTooLowException() {
-	return std::out_of_range("Grade is too low.");
+	std::string e = "Grade is too low!";
+    return std::out_of_range(e);
 }
 
 std::ostream& operator<<(std::ostream& os, const Form& obj) {

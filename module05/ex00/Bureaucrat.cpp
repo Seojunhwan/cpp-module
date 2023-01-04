@@ -59,11 +59,13 @@ void                Bureaucrat::decrementGrade() {
 }
 
 std::out_of_range Bureaucrat::GradeTooHighException() const {
-    return std::out_of_range("Grade is too high!");
+    std::string e = "Grade is too high!";
+    return std::out_of_range(e);
 }
 
 std::out_of_range Bureaucrat::GradeTooLowException() const {
-    return std::out_of_range("Grade is too low!");
+    std::string e = "Grade is too low!";
+    return std::out_of_range(e);
 }
 
 std::ostream& operator<<(std::ostream& os, Bureaucrat const& obj) {
