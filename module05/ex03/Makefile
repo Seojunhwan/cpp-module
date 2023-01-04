@@ -1,7 +1,7 @@
 NAME = a.out
 
 CXX = c++
-CXXFLAGS = -std=c++98 -Wall -Wextra -Werror -fsanitize=address -g
+CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 
 SRCS = Bureaucrat.cpp \
 		AForm.cpp \
