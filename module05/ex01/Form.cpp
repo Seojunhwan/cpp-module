@@ -26,9 +26,7 @@ _executionGrade(obj._executionGrade) {
 
 Form::~Form() { 
 }
-/*
-TODO: 수정
-*/
+
 Form&	Form::operator=(const Form &obj) {
 	if (this != &obj) {
 		std::cout << "You cannot copy Form!" << std::endl;
