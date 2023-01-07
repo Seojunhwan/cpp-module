@@ -4,6 +4,10 @@
 /*
 ! Orthodox Canonical Form
 */
+Conversion::Conversion(void): _str("42") {
+	this->_double = this->_isChar() ? static_cast<double>(this->_str[0]) : std::strtod(_str.c_str(), NULL);
+}
+
 Conversion::Conversion(std::string	str): _str(str) {
 	this->_double = this->_isChar() ? static_cast<double>(str[0]) : std::strtod(_str.c_str(), NULL);
 }

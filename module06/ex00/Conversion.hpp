@@ -9,6 +9,7 @@ class Conversion {
 		double		_double;
 		bool		_isChar() const;
 	public:
+		Conversion(void);
 		Conversion(std::string	str);
 		Conversion(const Conversion &obj);
 		~Conversion();
