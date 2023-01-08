@@ -65,10 +65,15 @@ void	Conversion::putFloat() const {
 	std::cout << "float: ";
 	if (isinf(f) && !isinf(_double))
 		std::cout << "impossible" << std::endl;
+	else if (isinf(f) && f > 0)
+		std::cout << "+inff" << std::endl;
 	else
 		std::cout << f << 'f' << std::endl;
 }
 
 void	Conversion::putDouble() const {
-	std::cout << "double: " << _double << std::endl; 
+	std::cout << "double: ";
+	if (isinf(this->_double) && this->_double > 0) 
+		std::cout << "+";
+	std::cout << _double << std::endl; 
 }
