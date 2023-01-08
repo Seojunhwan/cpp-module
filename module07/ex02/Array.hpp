@@ -12,7 +12,7 @@ class Array
     public:
         Array() : _arr(new T[0]), _size(0) {}
         Array(unsigned int n) : _arr(new T[n]), _size(n) {}
-        Array(const Array &obj) : _arr(new T[obj.size]), _size(obj._size) {
+        Array(const Array &obj) : _arr(new T[obj.size()]), _size(obj.size()) {
             for (unsigned int i = 0; i < this->_size; i++) {
                 this->_arr[i] = obj._arr[i];
             }
@@ -35,15 +35,17 @@ class Array
         }
 
         T& operator[](unsigned int index) {
-            if (index > this->_size) {
-                throw std::out_of_range("index is out bounds");
+            if (index >= this->_size) {
+                std::string e = "index is out bounds";
+                throw std::out_of_range(e);
             }
             return this->_arr[index];
         }
 
         const T& operator[](unsigned int index) const {
-            if (index > this->_size) {
-                throw std::out_of_range("index is out bounds");
+            if (index >= this->_size) {
+                std::string e = "index is out bounds";
+                throw std::out_of_range(e);
             }
             return this->_arr[index];
         }

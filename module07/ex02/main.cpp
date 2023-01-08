@@ -3,6 +3,7 @@
 #include <exception>
 
 int main(void) {
+    std::cout << "---------------------------------------------" << std::endl;
     {
         Array<int> a(5);
 
@@ -15,11 +16,12 @@ int main(void) {
         }
 
         try { 
-            std::cout  << a[7];
+            std::cout  << a[5];
         } catch (std::exception & e) {
             std::cout << e.what() << std::endl;
         }
     }
+    std::cout << "---------------------------------------------" << std::endl;
     {
         Array<char> a(5);
         Array<char> b(10);
@@ -39,10 +41,14 @@ int main(void) {
             std::cout << e.what() << std::endl;
         }
     }
+    std::cout << "---------------------------------------------" << std::endl;
     {
         Array<int> a(5);
-        const Array<int> b(5);
-
+        
+        for (unsigned int i = 0; i < 5; i++) {
+            a[i] = 0;
+        }
+        const Array<int> b(a);
         for (unsigned int i = 0; i < 5; i++) {
             std::cout << a[i] << std::endl;
             std::cout << b[i] << std::endl;
