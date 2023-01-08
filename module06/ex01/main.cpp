@@ -12,5 +12,6 @@ int main() {
 
   Data* ptr = serial.deserialize(raw);
   std::cout << ((ptr == &data) ? "true" : "false") << std::endl;
+  std::cout << data._name << std::endl;
   return 0;
 }
