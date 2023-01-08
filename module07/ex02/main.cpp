@@ -3,7 +3,7 @@
 #include <exception>
 
 int main(void) {
-    std::cout << "---------------------------------------------" << std::endl;
+    std::cout << "----------------------int array size : 5-----------------------" << std::endl;
     {
         Array<int> a(5);
 
@@ -14,14 +14,14 @@ int main(void) {
         for (unsigned int i = 0; i < a.size(); i++) {
             std::cout << a[i] << std::endl;
         }
-
+    std::cout << "--- invalid access wrong index: 5" << std::endl;
         try { 
             std::cout  << a[5];
         } catch (std::exception & e) {
             std::cout << e.what() << std::endl;
         }
     }
-    std::cout << "---------------------------------------------" << std::endl;
+    std::cout << "----------------------char array size : 5-----------------------" << std::endl;
     {
         Array<char> a(5);
         Array<char> b(10);
@@ -34,14 +34,15 @@ int main(void) {
             std::cout << a[i] << std::endl;
             std::cout << b[i] << std::endl;
         }
-
+        std::cout << "--- invalid access wrong index: 7" << std::endl;
         try { 
             std::cout  << a[7];
         } catch (std::exception & e) {
             std::cout << e.what() << std::endl;
         }
     }
-    std::cout << "---------------------------------------------" << std::endl;
+    std::cout << "----------------------int array size : 5-----------------------" << std::endl;
+    std::cout << "----------------------access const int array example-----------------------" << std::endl;
     {
         Array<int> a(5);
         
