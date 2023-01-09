@@ -1,5 +1,4 @@
 #include "Span.hpp"
-#include <string>
 
 Span::Span(unsigned int n) : _maximum(n) {
 }
@@ -38,14 +37,14 @@ unsigned int    Span::shortestSpan() {
         std::string e = "not enough elements";
         throw std::runtime_error(e);
     }
+    std::vector<int> tmp(this->_storage);
+    std::sort(tmp.begin(), tmp.end());
 
-    std::sort(this->_storage.begin(), this->_storage.end());
+    unsigned int min = tmp[1] - tmp[0];
 
-    unsigned int min = this->_storage[1] - this->_storage[0];
-
-    for (unsigned long i = 1; i < this->_storage.size() - 1; i++)
+    for (unsigned long i = 1; i < tmp.size() - 1; i++)
     {
-        unsigned int newValue = this->_storage[i + 1] - this->_storage[i];
+        unsigned int newValue = tmp[i + 1] - tmp[i];
         if (newValue < min)
             min = newValue;
     }
@@ -57,8 +56,9 @@ unsigned int    Span::longestSpan() {
         std::string e = "not enough elements";
         throw std::runtime_error(e);
     }
+    std::vector<int> tmp(this->_storage);
 
-    std::sort(this->_storage.begin(), this->_storage.end());
+    std::sort(tmp.begin(), tmp.end());
 
-    return this->_storage[this->_storage.size() - 1] - this->_storage[0];
+    return tmp[tmp.size() - 1] - tmp[0];
 }
