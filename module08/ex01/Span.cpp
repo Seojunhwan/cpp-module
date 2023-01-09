@@ -16,7 +16,7 @@ Span &Span::operator=(const Span& obj) {
 Span::~Span() {
 }
 
-void            Span::addNumber(unsigned int number) {
+void            Span::addNumber(int number) {
     if (this->_storage.size() == this->_maximum) {
         std::string e = "span is full";
         throw std::runtime_error(e);
