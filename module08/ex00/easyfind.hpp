@@ -2,14 +2,19 @@
 # define EASYFIND_HPP
 
 #include <algorithm>
+#include <iostream>
 
 template <typename T>
-int easyfind(T &c, int n) {
-    typename T::iterator it = std::find(c.begin(), c.end(), n);
+void    easyfind(T &c, int n) {
+    typename T::iterator it;
+
+    it = std::find(c.begin(), c.end(), n);
+
     if (it == c.end()) {
         throw std::exception();
     }
-    return *it;
-};
+
+    std::cout << "found it!!" << std::endl;
+}
 
 #endif
