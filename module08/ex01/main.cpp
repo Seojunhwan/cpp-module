@@ -3,6 +3,17 @@
 
 int main()
 {
+    std::cout << "----------------random number 20000----------------" << std::endl;
+    {
+        srand(time(NULL));
+        Span sp = Span(100000);
+        for (int i = 0; i < 100000; ++i) {
+            sp.addNumber(rand());
+        }
+        std::cout << sp.shortestSpan() << std::endl;
+        std::cout << sp.longestSpan() << std::endl;
+    }
+    std::cout << "\n\n----------------random number 5----------------" << std::endl;
     {
         Span sp = Span(5);
         sp.addNumber(6);
@@ -13,6 +24,7 @@ int main()
         std::cout << sp.shortestSpan() << std::endl;
         std::cout << sp.longestSpan() << std::endl;
     }
+    std::cout << "\n\n----------------random number argument vector----------------" << std::endl;
     {
         std::vector<int> v;
 
@@ -31,6 +43,7 @@ int main()
         std::cout << sp.shortestSpan() << std::endl;
         std::cout << sp.longestSpan() << std::endl;
     }
+    std::cout << "\n\n----------------error occurred too much elements----------------" << std::endl;
     {
         try
         {
@@ -56,6 +69,7 @@ int main()
             std::cerr << e.what() << '\n';
         }
     }
+    std::cout << "\n\n----------------error occurred is not enough----------------" << std::endl;
     {
         try
         {      
