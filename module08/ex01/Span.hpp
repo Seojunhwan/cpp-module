@@ -1,7 +1,7 @@
 #ifndef SPAN_HPP
 # define SPAN_HPP
 
-#include <vector>
+# include <vector>
 
 class Span
 {
